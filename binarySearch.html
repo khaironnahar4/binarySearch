@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search</title>
+    <script>
+        let array = [34,27,12,90,23,44,96,27];
+        let data = 23;
+        let start = 0;
+        let end = array.length-1;
+        let mid;
+        let pos;
+        //array sorting
+        for(let i=0; i<array.length; i++){
+            for(let j=0; j<array.length; j++){
+                if(array[j]>array[j+1]){
+                    array[j]=array[j]+array[j+1];
+                    array[j+1]=array[j]-array[j+1];
+                    array[j]=array[j]-array[j+1];
+                }
+            }
+        }
+        console.log(array);
+        //binary search
+        while(start<=end){
+            mid = Math.floor((start+end)/2);
+            if(array[mid]==data){
+                pos = mid+1;
+                break;
+            }else if(array[mid]<data){
+                start=mid+1;
+            }else{
+                end = mid-1;
+            }
+        }
+        console.log(pos);
+    </script>
+</head>
+<body>
+    
+</body>
